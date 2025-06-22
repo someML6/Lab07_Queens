@@ -4,11 +4,22 @@ public class Main {
 
 
     public static void main(String[] args) {
-         Board b = new Board();
+         Board brd = new Board();
+         brd.setBoard(4,4,2);
 
 
-         System.out.print(b.getBoard()[2][3] );
 
 
+            brd.printBoard();
+
+            /*
+            for (int i = 0; i < brd.getBoard().length; i++) {
+                for (int n = 0; n < brd.getBoard()[i].length - 1; n++) {
+                    System.out.print(brd.getBoard()[i][n] + " ");
+                }
+                System.out.println(brd.getBoard()[i][brd.getBoard()[i].length - 1] + " ");
+            }*/
     }
+
+
 }
