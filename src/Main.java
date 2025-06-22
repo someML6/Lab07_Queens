@@ -6,11 +6,12 @@ public class Main {
     public static void main(String[] args) {
          Board brd = new Board();
          brd.setBoard(4,4,2);
+         brd.setBoard(0,4,2);
 
 
 
 
-            brd.printBoard();
+         brd.printBoard(); //prints Board Matrix in the Console
     }
 
 
