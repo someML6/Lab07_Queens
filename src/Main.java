@@ -5,14 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
         Board brd = new Board();
-        brd.setBoard(3,4,9); //zu überprüfende position mit 9 markiert
+        brd.setBoard(3,4,2); //zu überprüfende position
         brd.setBoard(3,2,2);
-        brd.setBoard(0,4,2); //
+        brd.setBoard(0,4,2);
         brd.setBoard(1,2,2);
+        brd.setBoard(1,6,2);
         brd.setBoard(5,2,2);
-
-
-
 
 
         brd.printBoard(); //prints Board Matrix in the Console
@@ -30,12 +28,14 @@ public class Main {
             }
         }
 
+
         //--columncheck
         for (int i = 0; i < brd.getBoard().length; i++) {
             if (brd.getBoard()[i][c] == 2 && i != r) {
                 hitnumber++;
             }
         }
+
 
         //--diagonalcheck
         //downwards
@@ -45,13 +45,13 @@ public class Main {
 
             if(c+offset < brd.getBoard()[r].length) //prevents out-of-bounds exception
             {
-                if (brd.getBoard()[i][c + offset] == 2) {
+                if (brd.getBoard()[i][c + offset] == 2 && i != r) {
                     hitnumber++;
                 }
             }
             if(c-offset > -1) //prevents out-of-bounds exception
             {
-                if (brd.getBoard()[i][c - offset] == 2) {
+                if (brd.getBoard()[i][c - offset] == 2 && i != r) {
                     hitnumber++;
                 }
             }
@@ -59,23 +59,24 @@ public class Main {
             offset++;
         }
 
-        /*/upwards
-        for (int i = r-1; i >= 0; i--) {
-            if (brd.getBoard()[i][c-offset] == 2 && i != r) {
-                hitnumber++;
-                System.out.println(r + " " + (c-offset));
+        //upwards
+        offset = 0;
+        for (int i = r; i >= 0; i--)
+        {
+            if(c-offset > -1) //prevents out-of-bounds exception
+            {
+                if (brd.getBoard()[i][c-offset] == 2 && i != r) {
+                    hitnumber++;
+                }
             }
-            if (brd.getBoard()[i][c+offset] == 2 && i != r) {
-                hitnumber++;
-                System.out.println(r + " " + (c-offset));
+            if(c+offset < brd.getBoard()[r].length) //prevents out-of-bounds exception
+            {
+                if (brd.getBoard()[i][c + offset] == 2 && i != r) {
+                    hitnumber++;
+                }
             }
             offset++;
-
-        }*/
-
-        //downwards
-
-
+        }
 
 
         return hitnumber;
