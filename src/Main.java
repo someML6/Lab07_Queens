@@ -11,14 +11,6 @@ public class Main {
 
 
             brd.printBoard();
-
-            /*
-            for (int i = 0; i < brd.getBoard().length; i++) {
-                for (int n = 0; n < brd.getBoard()[i].length - 1; n++) {
-                    System.out.print(brd.getBoard()[i][n] + " ");
-                }
-                System.out.println(brd.getBoard()[i][brd.getBoard()[i].length - 1] + " ");
-            }*/
     }
 
 

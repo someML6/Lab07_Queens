@@ -1,7 +1,7 @@
 public class Board {
 
     //Figures Represented by Numbers
-    // King~1, Queen~2, Rook~3, Bishop~4, Knight~5, Pawn~6
+    // King 1, Queen 2, Rook 3, Bishop 4, Knight 5, Pawn 6
     private int[][] board ={
             {0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0},
