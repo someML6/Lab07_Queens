@@ -7,37 +7,73 @@ public class Main {
         Board brd = new Board();
         brd.setBoard(3,4,9); //zu überprüfende position mit 9 markiert
         brd.setBoard(3,2,2);
-        brd.setBoard(1,4,2);
+        brd.setBoard(0,4,2); //
         brd.setBoard(1,2,2);
+        brd.setBoard(5,2,2);
 
 
 
 
 
         brd.printBoard(); //prints Board Matrix in the Console
-        System.out.println(checkTarget(3,4,brd));
+        System.out.println("Hits: " + checkTarget(3,4,brd));
     }
 
     //checks how often a specific Position on the Board is targeted by a Queen
     public static int checkTarget(int r, int c, Board brd){ // r-row, c-column, b-board
         int hitnumber = 0;
 
-        //rowcheck
+        //--rowcheck
         for (int i = 0; i < brd.getBoard()[r].length; i++) {
             if (brd.getBoard()[r][i] == 2 && i != c) {
                 hitnumber++;
             }
         }
 
-        //columncheck
+        //--columncheck
         for (int i = 0; i < brd.getBoard().length; i++) {
             if (brd.getBoard()[i][c] == 2 && i != r) {
                 hitnumber++;
             }
         }
 
-        //diagonalcheck
+        //--diagonalcheck
+        //downwards
+        int offset = 0;
+        for(int i = r; i<brd.getBoard()[r].length; i++)
+        {
 
+            if(c+offset < brd.getBoard()[r].length) //prevents out-of-bounds exception
+            {
+                if (brd.getBoard()[i][c + offset] == 2) {
+                    hitnumber++;
+                }
+            }
+            if(c-offset > -1) //prevents out-of-bounds exception
+            {
+                if (brd.getBoard()[i][c - offset] == 2) {
+                    hitnumber++;
+                }
+            }
+
+            offset++;
+        }
+
+        /*/upwards
+        for (int i = r-1; i >= 0; i--) {
+            if (brd.getBoard()[i][c-offset] == 2 && i != r) {
+                hitnumber++;
+                System.out.println(r + " " + (c-offset));
+            }
+            if (brd.getBoard()[i][c+offset] == 2 && i != r) {
+                hitnumber++;
+                System.out.println(r + " " + (c-offset));
+            }
+            offset++;
+
+        }*/
+
+        //downwards
 
 
 
