@@ -12,8 +12,11 @@ public class Main {
         brd.setBoard(1,6,2);
         brd.setBoard(5,2,2);
 
+        // AUFGABE 3 & 4 (Kommentarklammer "//" entfernen in Zeile 16, wenn diese Aufgabe betrachtet wird!!!)
+        //solveQueens(brd, 0);
 
-        brd.printBoard(); //prints Board Matrix in the Console
+        brd.printBoard(); //printet Board Matrix in Console
+        // AUFGABE 2 (checkt Hits an der eingegebenen Position)
         System.out.println("Hits: " + checkTarget(3,4,brd));
     }
 
@@ -81,6 +84,25 @@ public class Main {
 
         return hitnumber;
     }
+
+    // versucht eine Dame pro Reihe zu setzen
+    public static void solveQueens(Board board, int row) {
+        if (row == 8) {
+            System.out.println("Gefundene Lösung:");
+            board.printBoard();
+            System.out.println();
+            return;
+        }
+
+        for (int col = 0; col < 8; col++) {
+            if (checkTarget(row, col, board) == 0) {
+                board.setBoard(row, col, 2); // Dame setzen
+                solveQueens(board, row + 1); // zur nächsten Zeile
+                board.setBoard(row, col, 0); // zurücksetzen (Backtracking)
+            }
+        }
+    }
+
 
 
 }
