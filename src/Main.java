@@ -4,17 +4,18 @@ public class Main {
 
 
     public static void main(String[] args) {
-         Board brd = new Board();
-         brd.setBoard(3,4,2);
-         brd.setBoard(3,2,2);
-         brd.setBoard(1,4,2);
+        Board brd = new Board();
+        brd.setBoard(3,4,9); //zu überprüfende position mit 9 markiert
+        brd.setBoard(3,2,2);
+        brd.setBoard(1,4,2);
+        brd.setBoard(1,2,2);
 
 
 
 
 
-         brd.printBoard(); //prints Board Matrix in the Console
-         System.out.println(checkTarget(3,3,brd));
+        brd.printBoard(); //prints Board Matrix in the Console
+        System.out.println(checkTarget(3,4,brd));
     }
 
     //checks how often a specific Position on the Board is targeted by a Queen
@@ -34,6 +35,11 @@ public class Main {
                 hitnumber++;
             }
         }
+
+        //diagonalcheck
+
+
+
 
 
         return hitnumber;
