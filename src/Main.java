@@ -5,19 +5,40 @@ public class Main {
 
     public static void main(String[] args) {
         Board brd = new Board();
-        brd.setBoard(3,4,2); //zu überprüfende position
-        brd.setBoard(3,2,2);
-        brd.setBoard(0,4,2);
-        brd.setBoard(1,2,2);
-        brd.setBoard(1,6,2);
-        brd.setBoard(5,2,2);
 
-        // AUFGABE 3 & 4 (Kommentarklammer "//" entfernen in Zeile 16, wenn diese Aufgabe betrachtet wird!!!)
-        //solveQueens(brd, 0);
+        //------------------------------------------------------------------------------//
+        //Buchstaben von test ändern für die Verschiedenen Aufgaben:
 
-        brd.printBoard(); //printet Board Matrix in Console
-        // AUFGABE 2 (checkt Hits an der eingegebenen Position)
-        System.out.println("Hits: " + checkTarget(3,4,brd));
+        char test = 'a';
+        //'a' -> AUFGABE 1+2    [Joshua]
+        //'b' -> AUFGABE 3+4    [Marlon]
+        //Last Update: 22.6.2025 19:40
+        //------------------------------------------------------------------------------//
+
+
+
+        if (test == 'a')
+        {
+            brd.setBoard(3,4,2); //zu überprüfende position
+            brd.setBoard(3,2,2);
+            brd.setBoard(0,4,2);
+            brd.setBoard(1,2,2);
+            brd.setBoard(1,6,2);
+            brd.setBoard(5,2,2);
+
+
+            brd.printBoard(); //prints Board Matrix
+            System.out.println("Hits: " + checkTarget(3,4,brd)); //Prints how often the given Target is being targeted
+        }
+        else if (test == 'b')
+        {
+            // AUFGABE 3 & 4
+            solveQueens(brd, 0);
+        }
+
+
+
+
     }
 
     //checks how often a specific Position on the Board is targeted by a Queen
