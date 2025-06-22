@@ -30,7 +30,9 @@ public class Main {
 
         //columncheck
         for (int i = 0; i < brd.getBoard().length; i++) {
-            // TBD //
+            if (brd.getBoard()[i][c] == 2 && i != r) {
+                hitnumber++;
+            }
         }
 
 
